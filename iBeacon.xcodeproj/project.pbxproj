@@ -21,6 +21,9 @@
 		27A76FA318F0A60C006296EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A76F8518F0A60C006296EF /* UIKit.framework */; };
 		27A76FAB18F0A60C006296EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27A76FA918F0A60C006296EF /* InfoPlist.strings */; };
 		27A76FAD18F0A60C006296EF /* iBeaconTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A76FAC18F0A60C006296EF /* iBeaconTests.m */; };
+		27A76FF818F0AA6F006296EF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A76FF718F0AA6F006296EF /* CoreLocation.framework */; };
+		27A76FFA18F0AA75006296EF /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A76FF918F0AA75006296EF /* CoreBluetooth.framework */; };
+		27A7700118F0C3EC006296EF /* BeaconAdvertisingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A7700018F0C3EC006296EF /* BeaconAdvertisingService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,10 @@
 		27A76FA818F0A60C006296EF /* iBeaconTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iBeaconTests-Info.plist"; sourceTree = "<group>"; };
 		27A76FAA18F0A60C006296EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		27A76FAC18F0A60C006296EF /* iBeaconTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iBeaconTests.m; sourceTree = "<group>"; };
+		27A76FF718F0AA6F006296EF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		27A76FF918F0AA75006296EF /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		27A76FFF18F0C3EC006296EF /* BeaconAdvertisingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeaconAdvertisingService.h; path = iBeacon/Model/BeaconAdvertisingService.h; sourceTree = "<group>"; };
+		27A7700018F0C3EC006296EF /* BeaconAdvertisingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeaconAdvertisingService.m; path = iBeacon/Model/BeaconAdvertisingService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27A76FFA18F0AA75006296EF /* CoreBluetooth.framework in Frameworks */,
+				27A76FF818F0AA6F006296EF /* CoreLocation.framework in Frameworks */,
 				27A76F8418F0A60C006296EF /* CoreGraphics.framework in Frameworks */,
 				27A76F8618F0A60C006296EF /* UIKit.framework in Frameworks */,
 				27A76F8218F0A60C006296EF /* Foundation.framework in Frameworks */,
@@ -82,6 +91,8 @@
 		27A76F7518F0A60C006296EF = {
 			isa = PBXGroup;
 			children = (
+				27A76FFF18F0C3EC006296EF /* BeaconAdvertisingService.h */,
+				27A7700018F0C3EC006296EF /* BeaconAdvertisingService.m */,
 				27A76F8718F0A60C006296EF /* iBeacon */,
 				27A76FA618F0A60C006296EF /* iBeaconTests */,
 				27A76F8018F0A60C006296EF /* Frameworks */,
@@ -101,6 +112,8 @@
 		27A76F8018F0A60C006296EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27A76FF918F0AA75006296EF /* CoreBluetooth.framework */,
+				27A76FF718F0AA6F006296EF /* CoreLocation.framework */,
 				27A76F8118F0A60C006296EF /* Foundation.framework */,
 				27A76F8318F0A60C006296EF /* CoreGraphics.framework */,
 				27A76F8518F0A60C006296EF /* UIKit.framework */,
@@ -251,6 +264,7 @@
 			files = (
 				27A76F9818F0A60C006296EF /* ViewController.m in Sources */,
 				27A76F9218F0A60C006296EF /* AppDelegate.m in Sources */,
+				27A7700118F0C3EC006296EF /* BeaconAdvertisingService.m in Sources */,
 				27A76F8E18F0A60C006296EF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,6 +395,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iBeacon/iBeacon-Prefix.pch";
 				INFOPLIST_FILE = "iBeacon/iBeacon-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -394,6 +409,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iBeacon/iBeacon-Prefix.pch";
 				INFOPLIST_FILE = "iBeacon/iBeacon-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
