@@ -89,6 +89,7 @@ NSString *const kBeaconIdentifier = @"com.anthonymichaelperry.beacon";
             [[[UIAlertView alloc] initWithTitle:@"Cannot Advertise Beacon" message:@"There was an issue starting the advertisement of your beacon." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
             NSLog(@"Start Advertising Error: %@", error);
         } else {
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"ADVERTISINGSTARTED" object:nil];
             NSLog(@"Advertising!");
             self.advertising = YES;
         }

@@ -10,12 +10,14 @@
 #import "BeaconAdvertisingService.h"
 #import <CoreLocation/CoreLocation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import <TYMActivityIndicatorView/TYMActivityIndicatorView.h>
 
 @interface ViewController ()<CBPeripheralManagerDelegate,UIActionSheetDelegate,UINavigationBarDelegate>
 
 @property (strong,nonatomic)CBPeripheralManager *peripheralManager;
 @property (weak, nonatomic) IBOutlet UIButton *advertiseButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *leftBarButton;
+@property (strong,nonatomic) TYMActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -26,6 +28,9 @@
     if ((self = [super initWithCoder:aDecoder])) {
         self.navigationController.navigationBar.barTintColor = [UIColor redColor];
         [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,nil]];
+        _activityIndicator = [[TYMActivityIndicatorView alloc]initWithActivityIndicatorStyle:TYMActivityIndicatorViewStyleLarge];
+        _activityIndicator.backgroundImage = nil;
+
 
     }
     return self;
@@ -47,7 +52,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(startActivityAnimating:) name:@"ADVERTISINGSTARTED" object:nil];
 
+}
+
+
+- (void)startActivityAnimating:(NSNotification *)notification
+{
+    self.activityIndicator.center = CGPointMake(self.view.frame.size.width/2.0f, self.view.frame.size.height/2.0f);
+    [self.view addSubview:self.activityIndicator];
+    [self.activityIndicator startAnimating];
 }
 
 #pragma mark - CBPeripheralManager Delegate
@@ -59,6 +73,7 @@
 - (void)peripheralManagerDidStartAdvertising:(CBPeripheralManager *)peripheral error:(NSError *)error
 {
     NSLog(@"Did start advertising");
+
 }
 
 - (void)didReceiveMemoryWarning
