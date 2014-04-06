@@ -57,6 +57,8 @@
 }
 
 
+
+
 - (void)startActivityAnimating:(NSNotification *)notification
 {
     self.activityIndicator.center = CGPointMake(self.view.frame.size.width/2.0f, self.view.frame.size.height/2.0f);
